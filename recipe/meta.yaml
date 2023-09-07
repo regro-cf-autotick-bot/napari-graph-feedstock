@@ -1,5 +1,5 @@
 {% set name = "napari-graph" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-graph-{{ version }}.tar.gz
-  sha256: fb93c22659d8910168197e2c69693dffb49cc84e09b937fd3764a2aac7c757fe
+  sha256: 144246c9fa357660a47b477a743be146344b27c5f75880be1158e975712bfe90
 
 build:
   noarch: python
@@ -17,13 +17,14 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python >=3.8,<3.11
     - setuptools-scm
   run:
     - networkx
+    - numba
     - numpy
     - pandas
-    - python >=3.8
+    - python >=3.8,<3.11
 
 test:
   imports:
@@ -35,10 +36,11 @@ test:
     - pip
 
 about:
-  home: https://github.com/napari/napari-graph
+  home: https://pypi.org/project/napari-graph
   summary: Efficient graph data structures and algorithms for fast slicing, visualization, and editing
   license: BSD-3-Clause
   license_file: LICENSE
+  dev_url: https://github.com/napari/napari-graph
 
 extra:
   recipe-maintainers:
